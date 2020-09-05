@@ -6,21 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-4.1.min.css">
 </head>
 <body>
-	<h1>This is the home page</h1>
 
-	<c:if test="${username != null}">
-		<p>
-			Hi , ${username}
-			<form action="/logout" method="POST">
-				<button type="submit">Logout</button>
-			</form>
-		<p>
-		
-		
-      
-	</c:if>
+
+	<jsp:include page="./partials/navbar.jsp"></jsp:include>
+
+	
 	
 	<c:forEach var="post" items="${posts}">
 
@@ -29,14 +22,30 @@
 					value="${pageContext.request.contextPath}/user/posts/${post.id}">
 		
 	</c:url>
-	
-	
-		<h3>${post.title}</h3>	
-		<p>${post.body.substring(0,4)}... <a href="${postUrl}">Read More</a>
-				</p>
-		<hr>
 		
 		
+		<div class="container">
+		<div class="row">
+			<div class="col-sm-8 offset-2 my-4">
+				<div class="card">
+					<div class="card-header">
+						<div class="media">
+							<img src="..." class="mr-3" alt="...">
+							<div class="media-body">
+								<h5 class="mt-0">${post.createdByUser}</h5>
+								About me
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">${post.title}</h5>
+						<p class="card-text">${post.body.substring(0,4)}... </p>
+						<a href="${postUrl}" class="btn btn-outline-primary btn-sm">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
 		
 		
 			

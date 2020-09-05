@@ -6,9 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-4.1.min.css">
 <title>Insert title here</title>
 </head>
 <body>
+
+	<jsp:include page="./partials/navbar.jsp"></jsp:include>
+
 	<h1>The Post</h1>
 	
 	<h3>${post.title}</h3>
