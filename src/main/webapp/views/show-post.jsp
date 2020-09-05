@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap-4.1.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <title>Insert title here</title>
 </head>
@@ -22,6 +23,7 @@
 				<div class="card">
 					<div class="card-body">
 						<h5 class="card-title">${post.title}</h5>
+						<hr>
 						<p class="card-text">${post.body}</p>
 						<div class="float-left">
 							<a href="#" class="btn btn-outline-danger btn-sm">Like</a> <a

@@ -85,6 +85,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		model.addAttribute("loggedUsername", loggedUsername);
 		model.addAttribute("isOwner", isSameUser);
+		model.addAttribute("profileName", profileName);
 		
 		model.addAttribute("posts", postService.getPostsByUsername(profileName));
 		
