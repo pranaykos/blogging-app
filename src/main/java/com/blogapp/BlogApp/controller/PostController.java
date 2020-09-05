@@ -62,6 +62,18 @@ public class PostController {
 		return "redirect:/user/profile/"+loggedUsername;
 	}
 	
+	@GetMapping("/update")
+	public String updatePost(@RequestParam("postId") int postId,
+			Model model,
+			HttpSession session) {
+		
+		Post post = postService.getPostById(postId);
+		model.addAttribute("post", post);
+		
+		return "new-post-form";
+		
+	}
+	
 	@GetMapping("/delete")
 	public String deletePost(@RequestParam("postId") int postId,
 								HttpSession session) {
@@ -84,24 +96,36 @@ public class PostController {
 								Model model, 
 								HttpSession session) {
 		
-		Post post = postService.getPostById(postId);
+		if(((Object) postId) instanceof Integer) {
+			
+			System.out.println("Instance of Integer");
 		
-		List<Comment> comments = post.getComments();
-		boolean isSameUser = session.getAttribute("username").equals(post.getCreatedByUser());
+			Post post = postService.getPostById(postId);
+			if(post != null) {
+				List<Comment> comments = post.getComments();
+				boolean isSameUser = session.getAttribute("username").equals(post.getCreatedByUser());
+				
+				/*System.out.println("logged User : "+session.getAttribute("username"));
+				System.out.println("Comment Owner :"+post.getCreatedByUser());*/
+				
+//				comments.forEach(comment -> System.out.println(comment));
+				
+				model.addAttribute("post", post);
+				model.addAttribute("newComment", new Comment());
+				model.addAttribute("comments", comments);
+				model.addAttribute("isSameUser", isSameUser);
+				
+//				System.out.println("Is same user :"+isSameUser);
+				
+				return "show-post";
+				
+				
+			}
+			
+		}
 		
-		/*System.out.println("logged User : "+session.getAttribute("username"));
-		System.out.println("Comment Owner :"+post.getCreatedByUser());*/
-		
-//		comments.forEach(comment -> System.out.println(comment));
-		
-		model.addAttribute("post", post);
-		model.addAttribute("newComment", new Comment());
-		model.addAttribute("comments", comments);
-		model.addAttribute("isSameUser", isSameUser);
-		
-//		System.out.println("Is same user :"+isSameUser);
-		
-		return "show-post";
+		System.out.println("Not Instance of Integer");
+		return "redirect:/";
 	}
 	
 }

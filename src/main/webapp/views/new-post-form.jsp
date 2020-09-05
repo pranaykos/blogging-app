@@ -29,6 +29,7 @@
 							modelAttribute="post"
 							action="${pageContext.request.contextPath}/user/posts/addPost"
 							method="POST">
+							<s:hidden path="id" />
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Post Title</label> 
 								<s:input type="text" class="form-control" path="title" id="exampleFormControlInput1" />

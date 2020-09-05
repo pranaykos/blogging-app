@@ -42,7 +42,7 @@
 				
 				
 				<!-- Update URL -->
-				<c:url var="updateLink" value="${pageContext.request.contextPath}/user/posts/delete">
+				<c:url var="updateLink" value="${pageContext.request.contextPath}/user/posts/update">
 					<c:param name="postId" value="${post.id}" />
 				</c:url>
 
@@ -75,8 +75,8 @@
 										</c:when>
 										<c:otherwise>
 											<div class='float-right'>
-												<a href='#' class='btn btn-outline-warning btn-sm'>Update</a>
-												<a href='${updateLink}' class='btn btn-outline-danger btn-sm'>Delete</a>
+												<a href='${updateLink}' class='btn btn-outline-warning btn-sm'>Update</a>
+												<a href='${deleteLink}' class='btn btn-outline-danger btn-sm'>Delete</a>
 											</div>
 										</c:otherwise>
 									</c:choose>
