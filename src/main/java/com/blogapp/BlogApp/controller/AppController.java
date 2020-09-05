@@ -38,7 +38,6 @@ public class AppController {
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 		   AuthrizeUser userPrincipal = (AuthrizeUser)authentication.getPrincipal();
 		   
-		   model.addAttribute("username", userPrincipal.getUsername());
 		   session.setAttribute("username", userPrincipal.getUsername());
 		   session.setAttribute("isLoggedIn", true);
 		   

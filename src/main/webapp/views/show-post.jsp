@@ -28,12 +28,12 @@
 						</div>
 
 						
-
-						<div class='float-right'> 
+						<c:if test="${isSameUser}">
+							<div class='float-right'> 
 										<a href='#' class='btn btn-outline-warning btn-sm'>Update</a> 
 										<a href='#' class='btn btn-outline-danger btn-sm'>Delete</a>
-						</div>
-						
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>

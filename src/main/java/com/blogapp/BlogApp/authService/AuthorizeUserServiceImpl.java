@@ -42,23 +42,23 @@ public class AuthorizeUserServiceImpl implements AuthorizeUserService {
 	}
 
 	private Set<SimpleGrantedAuthority> getAuthorities(String role) {
-		System.out.println("Request for Role |"+role+"|");
+//		System.out.println("Request for Role |"+role+"|");
 		
 		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
 		
 		switch(role) {
 			case "USER" : 
 				authorities = Role.USER.getGrantedAuthority();
-				System.out.println("Inside Case User");
+				/*System.out.println("Inside Case User");
 				System.out.println("Granted Permissions ");
-				System.out.println("Authorities : "+authorities);
+				System.out.println("Authorities : "+authorities);*/
 				break;
 				
 			case "ADMIN" : 
 				authorities = Role.ADMIN.getGrantedAuthority();
-				System.out.println("Inside Case Admin");
+				/*System.out.println("Inside Case Admin");
 				System.out.println("Granted Permissions ");
-				System.out.println("Authorities : "+authorities);
+				System.out.println("Authorities : "+authorities);*/
 				break;
 				
 			default : 

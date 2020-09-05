@@ -6,43 +6,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style type="text/css">
-	.error{
-	color: red;}
-</style>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-4.1.min.css">
+
 </head>
 <body>
-	<h1>New User Register Here</h1>
-	
-	<s:form 
-			modelAttribute="user"
-			action="${pageContext.request.contextPath}/user/register"
-			method="POST">
-			
-			<s:hidden path="id"/>
 		
-			<p>
-				Name : <s:input path="name"/> <s:errors cssClass="error" path="name"></s:errors>
-			</p>
-			<p>
-				Username : <s:input path="username"/> <s:errors cssClass="error" path="username"></s:errors>
-			</p>
-			<p>
-				Password : <s:input path="password"/> <s:errors cssClass="error" path="password"></s:errors>
-			</p>
-			<p>
-				Confirm password : <s:input path="confirmPassword"/> <s:errors cssClass="error" path="confirmPassword"></s:errors>
-			</p>
-			<p>
-				Email : <s:input path="email"/> <s:errors cssClass="error" path="email"></s:errors>
-			</p>
-			<p>
-				Mobile No. : <s:input path="mobileNo"/> <s:errors cssClass="error" path="mobileNo"></s:errors>
-			</p>
-			<p>
-				<input type="submit" value="Register"/>
-			</p>
+		<div class="container mt-4">
+			<div class="col-sm-6 offset-3">
+				<s:form
+					modelAttribute="user"
+					action="${pageContext.request.contextPath}/user/register"
+					method="POST">
+				  <div class="form-row">
+
+				  	<h1 class="display-4 my-2">Register Here</h1>
+
+				    <div class="form-group col-md-6">
+				      <label for="inputEmail4">Name</label>
+				      <s:input type="text" class="form-control" id="inputEmail4" path="name" />
+				      <small id="emailHelp" class="form-text text-danger "><s:errors cssClass="text-danger" path="name"></s:errors></small>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Email</label>
+				      <s:input type="email" class="form-control" id="inputPassword4" path="email" />
+				      <small id="emailHelp" class="form-text text-danger "><s:errors cssClass="text-danger" path="email"></s:errors></small>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Mobile No</label>
+				      <s:input type="text" class="form-control" id="inputPassword4" path="mobileNo" />
+				      <small id="emailHelp" class="form-text text-danger "><s:errors cssClass="text-danger" path="mobileNo"></s:errors></small>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Username</label>
+				      <s:input type="text" class="form-control" id="inputPassword4" path="username" />
+				      <small id="emailHelp" class="form-text text-danger "><s:errors cssClass="text-danger" path="username"></s:errors></small>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Password</label>
+				      <s:input type="password" class="form-control" id="inputPassword4" path="password" />
+				      <small id="emailHelp" class="form-text text-danger "><s:errors cssClass="text-danger" path="password"></s:errors></small>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Confirm Password</label>
+				      <s:input type="password" class="form-control" id="inputPassword4" path="confirmPassword" />
+				      <small id="emailHelp" class="form-text text-danger "><s:errors cssClass="text-danger" path="confirmPassword"></s:errors></small>
+				    </div>
+
+				  </div>
+				  <div class="form-group">
+				    <label for="inputAddress">About You</label>
+				    <input type="text" class="form-control" id="inputAddress" placeholder="Your Bio">
+				  </div>
+				  <button type="submit" class="btn btn-success">Register</button>
+				</s:form>
+			</div>
+	</div>
 		
-	</s:form>
+		
+		
+		
+		
+		
+		
 </body>
 </html>

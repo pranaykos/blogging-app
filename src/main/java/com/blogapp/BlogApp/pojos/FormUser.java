@@ -14,23 +14,23 @@ public class FormUser {
 
 	private int id;
 
-	@NotNull(message="Name cant be Null")
+	@NotNull(message="Name is Required")
 	@Size(min=1, message="Name is Required")
 	private String name;
 	
-	@NotNull(message="Username cant be Null")
+	@NotNull(message="Username is Required")
 	@Size(min=1, message="Username is Required")
 	private String username;
 	
-	@NotNull(message="Password cant be Null")
+	@NotNull(message="Password is Required")
 	@Size(min=1, message="Password is Required")
 	private String password;
 	
-	@NotNull(message="confirmPassword No cant be Null")
-	@Size(min=1, message="confirmPassword is Required")
+	@NotNull(message="Confirm Password is Required")
+	@Size(min=1, message="Confirm Password is Required")
 	private String confirmPassword;
 	
-	@NotNull(message="Email cant be Null")
+	@NotNull(message="Email is Required")
 	@Size(min=1, message="Email is Required")
 	private String email;
 	
