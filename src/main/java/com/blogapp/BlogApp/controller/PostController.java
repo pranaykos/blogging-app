@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.blogapp.BlogApp.authService.AuthrizeUser;
 import com.blogapp.BlogApp.entity.Comment;
 import com.blogapp.BlogApp.entity.Post;
+import com.blogapp.BlogApp.entity.User;
 import com.blogapp.BlogApp.reposotiry.PostRepository;
 import com.blogapp.BlogApp.service.PostService;
+import com.blogapp.BlogApp.service.UserService;
 
 @Controller
 @RequestMapping("/user/posts")
@@ -29,6 +32,9 @@ public class PostController {
 	
 	@Autowired
 	private PostService postService;
+	
+	@Autowired
+	private UserService userService;
 	
 	
 	@GetMapping("/new")
@@ -39,8 +45,6 @@ public class PostController {
 	
 	@PostMapping("/addPost")
 	public String addNewPost(@ModelAttribute("post") Post post) {
-		postService.addNewPost(post);
-		
 		
 		String loggedUsername = null;
 		
@@ -51,8 +55,28 @@ public class PostController {
 		    loggedUsername = userPrincipal.getUsername();
 		}
 		
+		User user = userService.getUserByUsername(loggedUsername);
+		post.setCreatedBy(user);
+		postService.addNewPost(post);
 		
 		return "redirect:/user/profile/"+loggedUsername;
+	}
+	
+	@GetMapping("/delete")
+	public String deletePost(@RequestParam("postId") int postId,
+								HttpSession session) {
+
+		if(((Object)postId) instanceof Integer) {
+			Post post = postService.getPostById(postId);
+			if(post != null && session.getAttribute("username").equals(post.getCreatedByUser())) {
+				System.out.println("DELETE REquest for post"+postId);
+				postService.deletePostById(postId);
+				System.out.println("post deleted "+postId);
+			}
+		}
+		
+//		return "redirect:/user/posts/"+postId;
+		return "redirect:/";
 	}
 	
 	@GetMapping("/{postId}")

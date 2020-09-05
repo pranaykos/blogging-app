@@ -39,7 +39,19 @@
 
 				<c:forEach var="post" items="${posts}">
 
+				
+				
+				<!-- Update URL -->
+				<c:url var="updateLink" value="${pageContext.request.contextPath}/user/posts/delete">
+					<c:param name="postId" value="${post.id}" />
+				</c:url>
 
+
+				<!-- Delete URL -->
+				<c:url var="deleteLink" value="${pageContext.request.contextPath}/user/posts/delete">
+					<c:param name="postId" value="${post.id}" />
+				</c:url>
+				
 
 
 					<div class="row my-4">
@@ -64,7 +76,7 @@
 										<c:otherwise>
 											<div class='float-right'>
 												<a href='#' class='btn btn-outline-warning btn-sm'>Update</a>
-												<a href='#' class='btn btn-outline-danger btn-sm'>Delete</a>
+												<a href='${updateLink}' class='btn btn-outline-danger btn-sm'>Delete</a>
 											</div>
 										</c:otherwise>
 									</c:choose>

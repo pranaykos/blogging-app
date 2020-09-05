@@ -23,19 +23,17 @@ public class BlogAppApplication {
 		ApplicationContext context = 
 					SpringApplication.run(BlogAppApplication.class, args);
 		
-		UserRepository userRepository = context.getBean(UserRepository.class);
+		/*UserRepository userRepository = context.getBean(UserRepository.class);
 		PostRepository postRepository = context.getBean(PostRepository.class);
-		CommentRepository commentRepository = context.getBean(CommentRepository.class);
+		CommentRepository commentRepository = context.getBean(CommentRepository.class);*/
 		
+		/*PostRepository postRepository = context.getBean(PostRepository.class);
 		
-		
-		
-		
-		
-	/*	
+		postRepository.deleteById(34);*/
+	
 		
 //		Comments
-		Comment comment1 = new Comment();
+		/*Comment comment1 = new Comment();
 		Comment comment2 = new Comment();
 			
 		comment1.setComent("very noce post");
@@ -49,11 +47,11 @@ public class BlogAppApplication {
 //		Posts
 		Post post1 = new Post();
 		post1.setTitle("post title");
-		post1.setBody("post content goes here");
+		post1.setBody("post content goes here");*/
 		
 		
 //		User
-		User user = new User();
+		/*User user = new User();
 		user.setName("my name");
 		user.setUsername("username");
 		user.setPassword("password");

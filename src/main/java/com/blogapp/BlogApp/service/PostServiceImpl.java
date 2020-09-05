@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -70,4 +72,11 @@ public class PostServiceImpl implements PostService {
 //		return postRepository.findByCreatedByUser(username);
 		return postRepository.findByCreatedByUserOrderByPostedOnDesc(username);
 	}
+
+	@Override
+	public void deletePostById(int id) {
+		System.out.println("Request for deleting the post "+id);
+		postRepository.deleteById(id);
+	}
+
 }

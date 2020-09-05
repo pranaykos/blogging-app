@@ -43,6 +43,7 @@ public class User {
 	private String mobileNo;
 	
 	@OneToMany(mappedBy="createdBy", cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="createdBy")
 	private List<Post> posts;
 	
 	@Column(name="role")
