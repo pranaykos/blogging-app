@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="w-25 mx-auto my-4">
 				<form class="form-signin" method="post" action="/login">
-					<h2 class="form-signin-heading display-4 my-4">Login Here</h2>
+					<h2 class="form-signin-heading display-4 my-4">Sign In</h2>
 					<p>
 						<label for="username" class="sr-only">Username</label> <input
 							type="text" id="username" name="username" class="form-control"
@@ -41,14 +41,16 @@
 
 					<p class="form-check my-3">
 							<input  type="checkbox" value=""
-								name="remember-me">
-								  <label class="form-check-label" for="defaultCheck1">
+								name="remember-me" id="remember-me">
+							</input>
+							<label class="form-check-label" for="remember-me">
 								    Remember Me
-								  </label>
+							</label>
+								  
 					</p>
 				
 					
-					<button class="btn btn-lg btn-danger btn-block" type="submit">Sign
+					<button class="btn btn-outline-primary btn-block" type="submit">Sign
 						in</button>
 		</form>
 			</div>
