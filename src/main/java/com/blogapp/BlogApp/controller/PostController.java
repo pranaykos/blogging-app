@@ -88,7 +88,7 @@ public class PostController {
 		}
 		
 //		return "redirect:/user/posts/"+postId;
-		return "redirect:/";
+		return "redirect:/user/profile/"+session.getAttribute("username");
 	}
 	
 	@GetMapping("/{postId}")
